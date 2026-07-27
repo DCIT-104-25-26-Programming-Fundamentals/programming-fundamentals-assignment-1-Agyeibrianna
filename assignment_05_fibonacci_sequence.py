@@ -47,5 +47,68 @@
 #
 # =============================================================================
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
-# =============================================================================
+
+def generate_fibonacci_terms(n):
+    """
+    Return a list containing the first `n` terms of the Fibonacci sequence,
+    generated using a loop.
+    """
+    sequence = []
+    a, b = 0, 1
+ 
+    for _ in range(n):
+        sequence.append(a)
+        a, b = b, a + b
+ 
+    return sequence
+ 
+ 
+def is_fibonacci_number(number):
+    """
+    Return True if `number` appears in the Fibonacci sequence, False otherwise.
+    Uses a loop to generate terms up to `number`.
+    """
+    if number < 0:
+        return False
+ 
+    a, b = 0, 1
+ 
+    while a <= number:
+        if a == number:
+            return True
+        a, b = b, a + b
+ 
+    return False
+ 
+ 
+def run_print_terms():
+    print("\n--- PART A: Print the First N Terms ---")
+    n = int(input("How many terms? "))
+ 
+    if n <= 0:
+        print("Error: N must be a positive integer.")
+        return
+ 
+    terms = generate_fibonacci_terms(n)
+    terms_str = " ".join(str(term) for term in terms)
+    print(f"Fibonacci sequence: {terms_str}")
+ 
+ 
+def run_check_membership():
+    print("\n--- PART B: Check if a Number Belongs to the Sequence ---")
+    number = int(input("Enter a number to check: "))
+ 
+    if is_fibonacci_number(number):
+        print(f"{number} is a Fibonacci number.")
+    else:
+        print(f"{number} is NOT a Fibonacci number.")
+ 
+ 
+def main():
+    run_print_terms()
+    run_check_membership()
+ 
+ 
+if __name__ == "__main__":
+    main()
 
