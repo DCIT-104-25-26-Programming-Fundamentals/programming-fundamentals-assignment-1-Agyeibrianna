@@ -53,5 +53,46 @@
 #
 # =============================================================================
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
-# =============================================================================
+
+def print_table(number):
+    """
+    Print the multiplication table for `number` from 1 to 12.
+    """
+    print(f"Multiplication Table for {number}:")
+    for multiplier in range(1, 13):
+        product = number * multiplier
+        print(f"{number}  x  {multiplier:<2} =  {product}")
+ 
+ 
+def print_tables_up_to(n):
+    """
+    Print the full multiplication table for every number from 1 to n,
+    separated by a divider line.
+    """
+    for number in range(1, n + 1):
+        print_table(number)
+        if number != n:
+            print("-" * 29)
+ 
+ 
+def main():
+    single_input = input("Enter a number for its multiplication table: ")
+    number = int(single_input)
+    print()
+    print_table(number)
+ 
+    print()
+    n_input = input("Enter N to print tables from 1 to N: ")
+    n = int(n_input)
+ 
+    if n <= 0:
+        print("Error: N must be a positive integer.")
+        return
+ 
+    print()
+    print_tables_up_to(n)
+ 
+ 
+if __name__ == "__main__":
+    main()
 
